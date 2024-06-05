@@ -1,0 +1,46 @@
+.pagination {
+  width: 80%;
+  height: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  li {
+    @media screen and (max-width: 640px) {
+      margin-top: 3rem;
+    }
+  }
+  a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid $border-primary-color;
+    color: $input-default-text-color;
+    cursor: pointer;
+    font-size: $font-med;
+
+    @media screen and (max-width: 640px) {
+      padding: 5px;
+    }
+
+    &:hover {
+      background-color: $hover-button-bg-color;
+      color: $default-button-text-color;
+      border-color: transparent;
+    }
+  }
+
+  &__active a {
+    color: $default-button-text-color;
+    background-color: $default-button-bg-color;
+    border-color: transparent;
+    &:hover {
+      color: $default-button-text-color;
+      background-color: $default-button-bg-color;
+      border-color: transparent;
+    }
+  }
+}
