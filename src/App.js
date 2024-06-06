@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Routes >
           <Route exact path="/" element={< HomePage /> } />
-          <Route exact path="/search-results" element={<SearchResultsPage/>} />
+          <Route exact path="/search-results/:id" element={<SearchResultsPage/>} />
           <Route path="/add-new-record" element={<AddNewRecord />} />
         </Routes >
       </Router>

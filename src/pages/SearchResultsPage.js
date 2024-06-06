@@ -3,10 +3,11 @@ import Logo from "../components/Logo/Logo";
 import SearchBar from "../components/SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { useSearchContext } from "../contexts/useSearchContext";
+import { useParams } from 'react-router-dom';
 
 const SearchResultsPage = () => {
   const { setNewRecordLink } = useSearchContext();
-
+  let { id } = useParams();
   function newRecordFunc() {
     setNewRecordLink("/search-results")
   }
@@ -29,6 +30,7 @@ const SearchResultsPage = () => {
       </nav>
       <section>
         <div className="search-results">
+        <h2>User ID: {id}</h2>
           {/* <SearchResults /> */}
         </div>
       </section>
