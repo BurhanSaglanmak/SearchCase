@@ -1,7 +1,6 @@
 .searchBarCont{
     display: flex;
     flex-direction: column;
-    background-color: white;
     &__search{
         display: flex;
         flex-direction: row ;
@@ -107,6 +106,7 @@
             border-color: black;
             border-radius: 10px;
             width: 83%;
+            background-color: white;
             @media (max-width:700px) {
                 width: 100%;
             }

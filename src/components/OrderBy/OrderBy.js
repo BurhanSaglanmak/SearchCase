@@ -8,6 +8,10 @@ function OrderBy() {
     const [orderByData, setOrderByData] = useState(false)
     const orderByRef = useRef(null);
 
+    useEffect(() => {
+        setOrderByName("Order By")
+    }, [setOrderByName])
+
     function orderButton() {
         setOrderByData(!orderByData)
     }
@@ -28,18 +32,20 @@ function OrderBy() {
         setOrderByData(!orderByData)
         setOrderByName("Year descending")
     }
+
+    //////////////////komponent dışı kapat
     useEffect(() => {
         function handleClickOutside(event) {
             if (orderByRef.current && !orderByRef.current.contains(event.target)) {
                 setOrderByData(false);
             }
         }
-
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [orderByRef]);
+    }, [orderByRef,setOrderByData]);
+
     return (
         <div className='OrderByCont' ref={orderByRef}>
             <div className='OrderByCont__context'>
