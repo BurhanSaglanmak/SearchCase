@@ -32,7 +32,7 @@ function SearchBar() {
     };
   }, [inputRef, dataContainerRef]);
   useEffect(() => {
-    if (dataMap.length == 0) {
+    if (dataMap.length === 0) {
       setShow(false)
     }
   }, [dataMap])
@@ -41,7 +41,7 @@ function SearchBar() {
   };
 
   function searchFunc() {
-    if (searchData.trim() != "" && dataMap.length != 0) {
+    if (searchData.trim() !== "" && dataMap.length !== 0) {
       setErrorClass(false)
       navigate(`/search-results/${searchData}`);
     } else {
@@ -67,7 +67,7 @@ function SearchBar() {
         <button onClick={searchFunc} >search</button>
       </div>
       {errorClass && <p className='searchBarCont__search__error'>Error</p>}
-      {dataMap.length != 0 && isFocused &&
+      {dataMap.length !== 0 && isFocused &&
         <div className='searchBarCont__search__data' ref={dataContainerRef}>
           {dataMap && dataMap.slice(0, show ? dataMap.length : 5).map((data, key) =>
             <div key={key} className='searchBarCont__search__data__context'>
