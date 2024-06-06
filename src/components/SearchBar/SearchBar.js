@@ -64,7 +64,7 @@ function SearchBar() {
             value={searchData}
             onChange={(e) => { setSearchData(e.target.value); setErrorClass(false) }} />
         </div>
-        <button onClick={searchFunc} >search</button>
+        <button onClick={searchFunc} >Search</button>
       </div>
       {errorClass && <p className='searchBarCont__search__error'>Error</p>}
       {dataMap.length !== 0 && isFocused &&

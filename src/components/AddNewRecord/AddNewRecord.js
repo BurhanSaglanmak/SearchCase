@@ -74,7 +74,6 @@ function AddNewRecordComp() {
                     const response = await axios.post(apiUrl, postData, {
                         headers: {
                             'Content-Type': 'application/json',
-                            // Diğer isteğe bağlı başlıkları da ekleyebilirsin
                         },
                     });
                     setResponsePost(response.status)

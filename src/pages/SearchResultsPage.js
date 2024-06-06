@@ -4,6 +4,7 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { useSearchContext } from "../contexts/useSearchContext";
 import { useParams } from 'react-router-dom';
+import SearchResults from "../components/SearchResults/SearchResults";
 
 const SearchResultsPage = () => {
   const { setNewRecordLink } = useSearchContext();
@@ -30,8 +31,7 @@ const SearchResultsPage = () => {
       </nav>
       <section>
         <div className="search-results">
-        <h2>User ID: {id}</h2>
-          {/* <SearchResults /> */}
+          <SearchResults id={id} />
         </div>
       </section>
 

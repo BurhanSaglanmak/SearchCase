@@ -8,13 +8,13 @@ import { useSearchContext } from "../contexts/useSearchContext";
 import Success from '../components/Success/Success'
 
 function AddNewRecord() {
-  const { newRecordLink } = useSearchContext();
+  const { newRecordLink,searchData } = useSearchContext();
 
   return (
     <div className='addNewRecord'>
       <div className='addNewRecord__header'>
         <Logo />
-        <Link to={newRecordLink === "/" ? "/" : "/search-results"}>
+        <Link to={newRecordLink === "/" ? "/" : `/search-results/${searchData}`}>
           <button>
             <img src={arrow} alt='...' />
             <h3>Return to {newRecordLink === "/" ? "Home" : "List"} Page</h3>
