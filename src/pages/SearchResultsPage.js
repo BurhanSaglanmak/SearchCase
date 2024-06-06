@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "../components/Logo/Logo";
 import SearchBar from "../components/SearchBar/SearchBar";
 import { Link } from "react-router-dom";
@@ -7,8 +7,13 @@ import { useParams } from 'react-router-dom';
 import SearchResults from "../components/SearchResults/SearchResults";
 
 const SearchResultsPage = () => {
-  const { setNewRecordLink } = useSearchContext();
+  const { setNewRecordLink, setIdData } = useSearchContext();
   let { id } = useParams();
+
+  useEffect(() => {
+    setIdData(id)
+  }, [id,setIdData])
+
   function newRecordFunc() {
     setNewRecordLink("/search-results")
   }
@@ -31,7 +36,7 @@ const SearchResultsPage = () => {
       </nav>
       <section>
         <div className="search-results">
-          <SearchResults id={id} />
+          <SearchResults />
         </div>
       </section>
 

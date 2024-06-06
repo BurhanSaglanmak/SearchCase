@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import search from "../../assets/images/search.png"
 import location from "../../assets/images/location.png"
 import { useSearchContext } from "../../contexts/useSearchContext";
 
 function SearchBar() {
-  const { searchData, setSearchData, dataMap, } = useSearchContext();
+  const { searchData, setSearchData, dataMap, idData ,setIdData} = useSearchContext();
+  const locationdata = useLocation();
   const navigate = useNavigate();
   const [show, setShow] = useState(false)
   const [errorClass, setErrorClass] = useState(false)
@@ -31,11 +32,23 @@ function SearchBar() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [inputRef, dataContainerRef]);
+
   useEffect(() => {
     if (dataMap.length === 0) {
       setShow(false)
     }
   }, [dataMap])
+
+  useEffect(() => {
+    if (idData !== "") {
+      setSearchData(idData)
+    }
+    if (locationdata.pathname === "/") {
+      setSearchData("")
+      setIdData("")
+    }
+  }, [idData, setSearchData, locationdata,setIdData])
+
   const handleFocus = () => {
     setIsFocused(true);
   };
@@ -48,11 +61,9 @@ function SearchBar() {
       setErrorClass(true)
     }
   }
-
   function ShowButton() {
     setShow(!show)
   }
-
   return (
     <div className='searchBarCont'>
       <div className='searchBarCont__search'>
