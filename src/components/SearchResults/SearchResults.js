@@ -5,20 +5,20 @@ import OrderBy from '../OrderBy/OrderBy';
 import PaginatedItems from '../Paginate/Paginate';
 
 function SearchResults() {
-    const { dataDetailMap ,itemOffset} = useSearchContext();
+    const { dataDetailMap, itemOffset } = useSearchContext();
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         setTimeout(() => {
-            setLoading(!loading)
+            setLoading(true)
         }, 1000);
     }, [setLoading, loading])
-
+// console.log(itemOffset);
     return (
         <div className='SearchResultsCont'>
             <OrderBy />
             {dataDetailMap.length !== 0 ?
-                dataDetailMap.slice(itemOffset * 10 - 10, itemOffset * 10).map((data, key) =>
+                dataDetailMap.slice(itemOffset * 10, itemOffset * 10+10).map((data, key) =>
                     <div key={key} className='SearchResultsCont__content'>
                         <div className='SearchResultsCont__content__right'>
                             <img src={location} alt='...' />
@@ -37,7 +37,7 @@ function SearchResults() {
                     <h2>{loading ? "Hatalı arama..." : "Loading.."}</h2>
                 </div>
             }
-            <PaginatedItems itemsPerPage={dataDetailMap} />
+           <PaginatedItems itemsPerPage={dataDetailMap} />
         </div>
     )
 }

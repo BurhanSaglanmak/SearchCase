@@ -831,6 +831,9 @@ body {
     width: 90%;
   }
 }
+.SearchResultsCont__content:hover {
+  background-color: rgba(79, 117, 194, 0.2117647059);
+}
 .SearchResultsCont__content__right {
   display: flex;
   flex-direction: row;

@@ -5,7 +5,7 @@ import location from "../../assets/images/location.png"
 import { useSearchContext } from "../../contexts/useSearchContext";
 
 function SearchBar() {
-  const { searchData, setSearchData, dataMap, idData, setIdData, setItemOffset } = useSearchContext();
+  const { searchData, setSearchData, dataMap, idData, setIdData, setSearchTerm, resetSearch } = useSearchContext();
   const locationdata = useLocation();
   const navigate = useNavigate();
   const [show, setShow] = useState(false)
@@ -56,7 +56,8 @@ function SearchBar() {
   function searchFunc() {
     if (searchData.trim() !== "" && dataMap.length !== 0) {
       setErrorClass(false)
-      setItemOffset(1)
+      setSearchTerm(searchData);
+      resetSearch(); // Reset pagination
       navigate(`/search-results/${searchData}`);
     } else {
       setErrorClass(true)
@@ -67,7 +68,7 @@ function SearchBar() {
   }
   return (
     <div className='searchBarCont'>
-      <div  className='searchBarCont__search'>
+      <div className='searchBarCont__search'>
         <div className={!errorClass ? 'searchBarCont__search__input' : 'searchBarCont__search__inputError'}>
           <img src={search} alt='...' />
           <input placeholder='search..'
