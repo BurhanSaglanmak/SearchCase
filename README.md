@@ -15,16 +15,15 @@
     ![Ekran görüntüsü 2024-06-07 193846](https://github.com/BurhanSaglanmak/SearchCase/assets/104764065/219d3f58-1b88-47dc-8359-e62542c02c71)
 
   - Create page
-
-![Ekran görüntüsü 2023-10-23 154349](https://github.com/BurhanSaglanmak/Search-Case/assets/104764065/0e9a3e3b-80b5-464e-932d-9a18948308a1)
+    ![Ekran görüntüsü 2024-06-07 194519](https://github.com/BurhanSaglanmak/SearchCase/assets/104764065/0a3530bf-fd27-4dec-a32f-b4ccc35720f3)
 
   - Error Validation
-
-![Ekran görüntüsü 2023-10-23 154358](https://github.com/BurhanSaglanmak/Search-Case/assets/104764065/f263fe30-1659-4635-a708-676d194a0550)
+    ![Ekran görüntüsü 2024-06-07 194545](https://github.com/BurhanSaglanmak/SearchCase/assets/104764065/92e76da0-50c7-4ee5-8703-79cc2008017d)
 
   - Success
+    
+    ![Ekran görüntüsü 2024-06-07 194624](https://github.com/BurhanSaglanmak/SearchCase/assets/104764065/132364af-1223-4628-88b1-39ffc3aadeba)
 
-![Ekran görüntüsü 2023-10-23 154414](https://github.com/BurhanSaglanmak/Search-Case/assets/104764065/25491adc-5315-4b1c-9ca3-6a4199af413f)
 
 # Getting Started with Create React App
 
