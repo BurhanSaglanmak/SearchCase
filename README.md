@@ -1,3 +1,31 @@
+# Search Case [(LIVE)](https://burhan-saglanmak-searchcase.netlify.app/)
+- Context Api
+- React Router
+- Scss Structure
+- 404 Page
+  
+# ScreenShots
+  - Homepage
+    ![Ekran görüntüsü 2024-06-07 193704](https://github.com/BurhanSaglanmak/SearchCase/assets/104764065/eb4cd890-b5ad-4b8e-9a3f-f84c99c42ec6)
+
+  - Search
+    ![Ekran görüntüsü 2024-06-07 193812](https://github.com/BurhanSaglanmak/SearchCase/assets/104764065/aa029df7-1c62-467a-a074-08b06f9ccea3)
+
+  - Search List
+    ![Ekran görüntüsü 2024-06-07 193846](https://github.com/BurhanSaglanmak/SearchCase/assets/104764065/219d3f58-1b88-47dc-8359-e62542c02c71)
+
+  - Create page
+
+![Ekran görüntüsü 2023-10-23 154349](https://github.com/BurhanSaglanmak/Search-Case/assets/104764065/0e9a3e3b-80b5-464e-932d-9a18948308a1)
+
+  - Error Validation
+
+![Ekran görüntüsü 2023-10-23 154358](https://github.com/BurhanSaglanmak/Search-Case/assets/104764065/f263fe30-1659-4635-a708-676d194a0550)
+
+  - Success
+
+![Ekran görüntüsü 2023-10-23 154414](https://github.com/BurhanSaglanmak/Search-Case/assets/104764065/25491adc-5315-4b1c-9ca3-6a4199af413f)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
