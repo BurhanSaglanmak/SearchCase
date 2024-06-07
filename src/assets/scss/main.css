@@ -915,6 +915,7 @@ body {
   align-items: center;
   position: absolute;
   margin-top: 40px;
+  box-shadow: 10px 5px 5px rgba(143, 143, 143, 0.3);
 }
 .OrderByCont__context__content h3 {
   font-family: Roboto;
@@ -927,5 +928,34 @@ body {
 }
 .OrderByCont__context__content h3:hover {
   background-color: #B3B3B3;
+  color: white;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  margin-bottom: 5rem;
+  margin-top: 30px;
+  font-size: 1.2rem;
+  gap: 5px;
+}
+
+.pagination .page-num {
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: 400;
+  border: 1px solid #484848;
+  border-radius: 5px;
+}
+
+.pagination .page-num:hover {
+  background-color: #204080;
+  color: white;
+}
+
+.pagination .active {
+  background-color: #204080;
   color: white;
 }/*# sourceMappingURL=main.css.map */

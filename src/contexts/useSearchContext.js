@@ -21,6 +21,7 @@ export const SearchProvider = ({ children }) => {
   const [successHide, setSuccesHide] = useState(false)
   const [idData, setIdData] = useState("")
   const [orderByName, setOrderByName] = useState("Order By")
+  const [itemOffset, setItemOffset] = useState(1);
 
   useEffect(() => {
     const newData = [];
@@ -84,7 +85,9 @@ export const SearchProvider = ({ children }) => {
         dataDetailMap,
         setDataDetailMap,
         orderByName,
-        setOrderByName
+        setOrderByName,
+        itemOffset,
+         setItemOffset
       }}
     >
       {children}
