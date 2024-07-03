@@ -14,6 +14,7 @@ function AddNewRecordComp() {
     const [dangerCity, setDangerCity] = useState(false);
     const [dangerEmail, setDangerEmail] = useState(false);
     const [dangerWebsite, setDangerWebsite] = useState(false);
+    const [trueStatte, setTrueState] = useState(false);
 
     const handleNameSurnameChange = (e) => {
         setNameSurname(e.target.value);
@@ -41,7 +42,7 @@ function AddNewRecordComp() {
         validateWebsite(e.target.value);
     };
 
-    const handleAddRecord = () => {
+    const handleAddRecord = async () => {
         const validationResults = {
             nameSurname: validateNameSurname(nameSurname),
             country: validateCountry(country),
@@ -49,7 +50,7 @@ function AddNewRecordComp() {
             email: validateEmail(email),
             website: validateWebsite(website),
         };
-        
+
         if (Object.values(validationResults).every((result) => result)) {
             // console.log('Yeni Kayıt:', {
             //     nameSurname,
@@ -61,6 +62,7 @@ function AddNewRecordComp() {
 
             ///////////// axios /////////////
             const axiosPost = async () => {
+                console.log("axios");
                 const apiUrl = `https://reqres.in/api/users`;
                 const postData = {
                     nameSurname: nameSurname,
@@ -82,126 +84,129 @@ function AddNewRecordComp() {
                 } catch (error) {
                     console.error('POST işlemi sırasında hata oluştu:', error.message);
                 }
+                setTrueState(!trueStatte)
             };
-            axiosPost();
+            await axiosPost();
             //////////////////////////
-            // State'i sıfırla
-            setNameSurname('');
-            setCountry('');
-            setCity('');
-            setEmail('');
-            setWebsite('');
+            if (trueStatte) {
+                // State'i sıfırla
+                setNameSurname('');
+                setCountry('');
+                setCity('');
+                setEmail('');
+                setWebsite('');
 
-            // Hataları sıfırla
-            setErrorMessages({
-                nameSurname: '',
-                country: '',
-                city: '',
-                email: '',
-                website: '',
-            });
+                // Hataları sıfırla
+                setErrorMessages({
+                    nameSurname: '',
+                    country: '',
+                    city: '',
+                    email: '',
+                    website: '',
+                });
+      }
         }
     };
 
     const validateNameSurname = (value) => {
         // Sadece harfler ve Türkçe karakterler, min 4 - max 60 karakter
-            const regex = /^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]{4,60}$/;
-            if (!regex.test(value)) {
-                setErrorMessages((prevErrors) => ({
-                    ...prevErrors,
-                    nameSurname: 'Invalid Name Surname',
-                }));
-                setErrorHideComp(true)
-                setDangerName(true);
-                return false;
-            }
-
+        const regex = /^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]{4,60}$/;
+        if (!regex.test(value)) {
             setErrorMessages((prevErrors) => ({
                 ...prevErrors,
-                nameSurname: '',
+                nameSurname: 'Invalid Name Surname',
             }));
-            setDangerName(false);
-            return true;
+            setErrorHideComp(true)
+            setDangerName(true);
+            return false;
+        }
+
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            nameSurname: '',
+        }));
+        setDangerName(false);
+        return true;
     };
 
     const validateCountry = (value) => {
         // Sadece harfler ve Türkçe karakterler, min 2 - max 40 karakter
-            const regex = /^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]{2,40}$/;
-            if (!regex.test(value)) {
-                setErrorMessages((prevErrors) => ({
-                    ...prevErrors,
-                    country: 'Invalid Country',
-                }));
-                setErrorHideComp(true)
-                setDangerCountry(true);
-                return false;
-            }
+        const regex = /^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]{2,40}$/;
+        if (!regex.test(value)) {
             setErrorMessages((prevErrors) => ({
                 ...prevErrors,
-                country: '',
+                country: 'Invalid Country',
             }));
-            setDangerCountry(false);
-            return true;
+            setErrorHideComp(true)
+            setDangerCountry(true);
+            return false;
+        }
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            country: '',
+        }));
+        setDangerCountry(false);
+        return true;
     };
 
     const validateCity = (value) => {
         // Sadece harfler ve Türkçe karakterler, min 2 - max 40 karakter
-            const regex = /^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]{2,40}$/;
-            if (!regex.test(value)) {
-                setErrorMessages((prevErrors) => ({
-                    ...prevErrors,
-                    city: 'Invalid City',
-                }));
-                setErrorHideComp(true)
-                setDangerCity(true);
-                return false;
-            }
+        const regex = /^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]{2,40}$/;
+        if (!regex.test(value)) {
             setErrorMessages((prevErrors) => ({
                 ...prevErrors,
-                city: '',
+                city: 'Invalid City',
             }));
-            setDangerCity(false);
-            return true;
+            setErrorHideComp(true)
+            setDangerCity(true);
+            return false;
+        }
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            city: '',
+        }));
+        setDangerCity(false);
+        return true;
     };
 
     const validateEmail = (value) => {
         // Basit e-posta doğrulama
-            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!regex.test(value)) {
-                setErrorMessages((prevErrors) => ({
-                    ...prevErrors,
-                    email: 'Invalid email',
-                }));
-                setErrorHideComp(true)
-                setDangerEmail(true);
-                return false;
-            }
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!regex.test(value)) {
             setErrorMessages((prevErrors) => ({
                 ...prevErrors,
-                email: '',
+                email: 'Invalid email',
             }));
-            setDangerEmail(false);
-            return true;
+            setErrorHideComp(true)
+            setDangerEmail(true);
+            return false;
+        }
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            email: '',
+        }));
+        setDangerEmail(false);
+        return true;
     };
 
     const validateWebsite = (value) => {
         // Basit URL doğrulama
-            const regex = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}([/?].*)?$/;
-            if (!regex.test(value)) {
-                setErrorMessages((prevErrors) => ({
-                    ...prevErrors,
-                    website: 'Invalid URL',
-                }));
-                setErrorHideComp(true)
-                setDangerWebsite(true);
-                return false;
-            }
+        const regex = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}([/?].*)?$/;
+        if (!regex.test(value)) {
             setErrorMessages((prevErrors) => ({
                 ...prevErrors,
-                website: '',
+                website: 'Invalid URL',
             }));
-            setDangerWebsite(false);
-            return true;
+            setErrorHideComp(true)
+            setDangerWebsite(true);
+            return false;
+        }
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            website: '',
+        }));
+        setDangerWebsite(false);
+        return true;
     };
 
     return (

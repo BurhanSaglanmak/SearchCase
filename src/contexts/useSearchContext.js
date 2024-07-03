@@ -50,29 +50,28 @@ export const SearchProvider = ({ children }) => {
     });
     if (searchData.trim() === "" && idData.trim() !== "") {
       setDataMap([])
-    } else {
-      if (searchData.trim() !== "" || idData.trim() !== "") {
-        const dataFilter = newData.filter(data => data.name.toLowerCase().includes(searchData.toLowerCase()))
-        const dataDetailFilter = newData.filter(data => data.name.toLowerCase().includes(idData.toLowerCase()))
+    } else if (searchData.trim() !== "" || idData.trim() !== "") {
+      const dataFilter = newData.filter(data => data.name.toLowerCase().includes(searchData.toLowerCase()))
+      const dataDetailFilter = newData.filter(data => data.name.toLowerCase().includes(idData.toLowerCase()))
 
-        // Sıralama işlemi
-        if (orderByName === "Name ascending") {
-          dataDetailFilter.sort((a, b) => a.name.localeCompare(b.name));
-        } else if (orderByName === "Name descending") {
-          dataDetailFilter.sort((a, b) => b.name.localeCompare(a.name));
-        } else if (orderByName === "Year ascending") {
-          dataDetailFilter.sort((a, b) => new Date(a.date) - new Date(b.date));
-        } else if (orderByName === "Year descending") {
-          dataDetailFilter.sort((a, b) => new Date(b.date) - new Date(a.date));
-        }
-        ///////////////
-        setDataMap(dataFilter);
-        setDataDetailMap(dataDetailFilter);
-      } else {
-        setDataMap([])
-        setDataDetailMap([])
+      // Sıralama işlemi
+      if (orderByName === "Name ascending") {
+        dataDetailFilter.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (orderByName === "Name descending") {
+        dataDetailFilter.sort((a, b) => b.name.localeCompare(a.name));
+      } else if (orderByName === "Year ascending") {
+        dataDetailFilter.sort((a, b) => new Date(a.date) - new Date(b.date));
+      } else if (orderByName === "Year descending") {
+        dataDetailFilter.sort((a, b) => new Date(b.date) - new Date(a.date));
       }
+      ///////////////
+      setDataMap(dataFilter);
+      setDataDetailMap(dataDetailFilter);
+    } else {
+      setDataMap([])
+      setDataDetailMap([])
     }
+
   }, [searchData, idData, orderByName])
   return (
     <SearchContext.Provider
