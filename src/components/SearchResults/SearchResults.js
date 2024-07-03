@@ -5,15 +5,15 @@ import OrderBy from '../OrderBy/OrderBy';
 import PaginatedItems from '../Paginate/Paginate';
 
 function SearchResults() {
-    const { dataDetailMap, itemOffset } = useSearchContext();
+    const { dataDetailMap, itemOffset,setItemOffset } = useSearchContext();
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         setTimeout(() => {
             setLoading(true)
         }, 1000);
-    }, [setLoading, loading])
-// console.log(itemOffset);
+        setItemOffset(0)
+    }, [setLoading, loading,setItemOffset])
     return (
         <div className='SearchResultsCont'>
             <OrderBy />
